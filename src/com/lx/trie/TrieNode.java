@@ -15,6 +15,11 @@ public class TrieNode {
     private char c;
     private boolean keyNode;
 
+    private String getKeyNodeAsString(){
+        return keyNode ? "*" : "";
+
+    }
+
     private Map<Character, TrieNode> children = new HashMap<>();
 
     @Override
@@ -36,7 +41,7 @@ public class TrieNode {
 
         return  "{" +
                 children.keySet().stream()
-                .map(chdrn -> "\"" +String.valueOf(chdrn) +  "\": "+ getJsonValue(children.get(chdrn).children) )
+                .map(chdrn -> "\"" +String.valueOf(chdrn + children.get(chdrn).getKeyNodeAsString()) +  "\": "+ getJsonValue(children.get(chdrn).children))
                 .collect(Collectors.joining(","))
                 + "}";
 

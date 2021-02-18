@@ -33,13 +33,32 @@ public class Trie {
 
            Map<Character,TrieNode> currentMap = rootTrieMap;
 
-           for(char c: s.toCharArray()){
+
+           char[] strCharArray =  s.toCharArray();
+
+           for(int i = 0; i< strCharArray.length; i++){
+
+               char c = strCharArray[i];
+
+               final int j = i;
+
+               if(j == strCharArray.length - 1){
+                   currentMap.computeIfPresent(c, (k,v) ->{
+                      v.setKeyNode(true);
+                      return v;
+                   });
+               }
 
                currentMap.computeIfAbsent(c,k -> {
                    TrieNode tn =  new TrieNode();
                    tn.setC(k);
+                   tn.setKeyNode(j == strCharArray.length - 1);
                    return tn;
                });
+
+
+
+
 
                currentMap = currentMap.get(c).getChildren();
 

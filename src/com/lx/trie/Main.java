@@ -9,7 +9,7 @@ public class Main {
 
 
 
-       List<String > ls = List.of("Luis", "Lex", "Lutor", "Zavaleta", "Zopilote", "Zamorano", "Luciernaga", "Lexico", "Lexicografico", "Batman");
+       List<String > ls = List.of("Luis", "Lex", "Lutor", "Zavaleta", "Zopilote", "Zamorano", "Luciernaga", "Lexico", "Lexicografico", "Batman", "Zava");
 
         Trie t = new Trie(ls);
 
